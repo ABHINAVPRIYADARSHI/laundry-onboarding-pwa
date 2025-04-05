@@ -1,0 +1,31 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.input {
+  @apply w-full p-3 border border-pink-300 rounded-lg shadow focus:outline-none focus:ring-2 focus:ring-pink-400;
+  @apply transition duration-300 ease-in-out transform focus:scale-105 focus:bg-pink-50;
+}
+
+.nav-btn {
+  @apply text-sm font-semibold text-white bg-gradient-to-r from-fuchsia-500 to-rose-500 px-4 py-2 rounded-full shadow-md hover:from-fuchsia-600 hover:to-rose-600 transition transform hover:scale-105;
+}
+
+button[type="submit"] {
+  @apply bg-gradient-to-r from-green-400 via-blue-400 to-purple-500 hover:from-green-500 hover:via-blue-500 hover:to-purple-600 transition text-white px-6 py-3 rounded-lg shadow-lg font-medium transform hover:scale-105;
+}
+
+/* Section hover animation */
+section:hover, div:hover, header:hover {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Animations */
+@keyframes bounce-slow {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+
+.animate-bounce-slow {
+  animation: bounce-slow 6s infinite;
+}
