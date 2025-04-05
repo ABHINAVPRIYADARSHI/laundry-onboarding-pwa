@@ -2,6 +2,14 @@ import React, { useState } from "react";
 import { supabase } from "../supabase";
 
 export default function ProviderForm() {
+
+    const labels = {
+        washOnly: "Wash Only",
+        ironOnly: "Iron Only",
+        washAndIron: "Wash & Iron",
+        dryClean: "Dry Clean",
+      };
+      
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -79,8 +87,11 @@ export default function ProviderForm() {
     if (!validate()) return;
 
     const servicesToSubmit = Object.keys(formData.services)
-      .filter(key => formData.services[key].selected)
-      .map(key => ({ name: key, price: parseFloat(formData.services[key].price) }));
+        .filter(key => formData.services[key].selected)
+        .map(key => ({
+        name: labels[key],
+        price: parseFloat(formData.services[key].price),
+        }));
 
     const { data, error } = await supabase.from("laundryShops").insert([
       {
