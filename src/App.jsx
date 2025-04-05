@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
 import ProviderForm from "./components/ProviderForm";
 import AdminPanel from "./components/AdminPanel";
+import A2HSButton from "./components/A2HSButton";
 
 function App() {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -93,6 +94,7 @@ function App() {
             <Route path="/admin" element={<AdminPanel />} />
           </Routes>
         </div>
+        <A2HSButton />
       </main>
     </Router>
   );
